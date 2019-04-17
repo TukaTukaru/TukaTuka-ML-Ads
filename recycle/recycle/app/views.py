@@ -1,5 +1,5 @@
 import datetime
-from django.core.exceptions import ObjectDoesNotExist
+from django.views.decorators.http import require_http_methods,require_GET,require_POST
 from django.shortcuts import render, get_object_or_404
 from .models import Ad, Company
 
@@ -12,7 +12,7 @@ import logging
 def index(request):
     return HttpResponse("Hello, {}".format(request.user))
 
-
+@require_GET
 def get_company(request):
     phone_number_ = "+79671234561"
 
@@ -24,7 +24,7 @@ def get_company(request):
                                                            company.phone_number
                                                            ))
 
-
+@require_POST
 def post_company(request):
     full_name_ = "Игуанов Игуан Игуанович"
     phone_number_ = "+79671234561"
@@ -48,7 +48,7 @@ def post_company(request):
                                                      company.company_adress,
                                                      company.site))
 
-
+@require_http_methods(["PATCH"])
 def patch_company(request):
     phone_number_ = "+79671234561"
     site_ = "www.iguan1.ru"
@@ -56,7 +56,7 @@ def patch_company(request):
     Company.objects.filter(phone_number__exact=phone_number_).update(site=site_)
     return HttpResponse("в компанию добавлен сайт: {}".format(site_))
 
-
+@require_http_methods(["DELETE"])
 def del_company(request):
     phone_number_ = "+79671234561"
     company = get_object_or_404(Company, phone_number__exact=phone_number_)
