@@ -5,7 +5,7 @@ description = ""
 authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.6"
 Django = "^2.2"
 psycopg2-binary = "^2.8"
 django-phonenumber-field = "^2.3"

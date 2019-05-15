@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+отображение объявления
+{% endblock %}
+
+{% block content %}
+<body>
+
+    <p>ФИО представителя</p>
+    {{ form.full_name }}
+    <p>Контактный телефон</p>
+    {{ form.phone_number }}
+    <p>Назание организации</p>
+    {{ form.company_name }}
+    <p>Адрес организации</p>
+    {{ form.company_adress }}
+    <p>email</p>
+    {{ form.email }}
+    <p>сайт</p>
+    {{ form.site }}
+</body>
+{% endblock %}

@@ -1,6 +1,7 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
+from django.conf import settings
 
 
 # Create your models here.
@@ -23,9 +24,6 @@ class Company(models.Model):
 
 
 class Ad(models.Model):
-    price = models.PositiveIntegerField(blank=True, null=True)
-    volume = models.PositiveIntegerField(blank=True, null=True)
-    photo = models.ImageField(upload_to='prod_img', blank=True, verbose_name='Фото продукции')
     CATEGORY_CHOICE = (
         (1, "Купить вторичное сырье на переработку"),
         (2, "Купить переработанное сырье"),
@@ -51,6 +49,11 @@ class Ad(models.Model):
         (5, "Другое"),
 
     )
+
+    price = models.PositiveIntegerField(blank=True, null=True)
+    volume = models.PositiveIntegerField(blank=True, null=True)
+    photo = models.ImageField(upload_to='prod_img', blank=True, verbose_name='Фото продукции')
+
     title = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField()
     author = models.ForeignKey(

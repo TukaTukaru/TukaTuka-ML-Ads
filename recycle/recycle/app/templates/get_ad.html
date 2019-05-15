@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Отображение объявления
+{% endblock %}
+
+{% block content %}
+<body>
+    <p>Название продукта</p>
+    {{ form.title }}
+
+    <p>Описание продукта</p>
+    {{ form.description }}
+
+    <p>Я хочу</p>
+    {{ form.category }}
+
+    <p>категория</p>
+    {{ form.category1 }}
+
+    <p>номер телефона</p>
+    {{ form.author }}
+
+    <p>Цена руб/тонна</p>
+    {{ form.price }}
+
+    <p>объем, тонн</p>
+    {{ form.volume }}
+
+    <p>фото продукции:</p>
+    {{ form.photo }}
+
+</body>
+{% endblock %}
