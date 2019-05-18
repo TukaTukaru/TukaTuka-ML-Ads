@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Форма добавления объявления
+{% endblock %}
+
+{% block content %}
+<body>
+<form action="{% url 'post_ad' %}" method="post">
+
+    {% csrf_token %}
+
+    <p>Название продукта</p>
+    {{ form.title }}
+
+    <p>Описание продукта</p>
+    {{ form.description }}
+
+    <p>Я хочу</p>
+    {{ form.category }}
+
+    <p>Выберите категорию</p>
+    {{ form.category1 }}
+
+    <p>Ваш номер телефона</p>
+    {{ form.author }}
+
+    <p>Цена руб/тонна</p>
+    {{ form.price }}
+
+    <p>объем, тонн</p>
+    {{ form.volume }}
+
+    <p>прикрепить фото продукции:</p>
+    {{ form.photo }}
+
+    <p>
+        <button type="submit" class="btn btn-primary">добавить объявление</button>
+    </p>
+
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+удаление объявления
+{% endblock %}
+
+{% block content %}
+<body>
+    <p>следующее объявление было удалено:</p>
+    <p>ФИО представителя</p>
+    {{ full_name }}
+    <p>Контактный телефон</p>
+    {{ phone_number }}
+    <p>Назание организации</p>
+    {{ company_name }}
+    <p>Адрес организации</p>
+    {{ company_adress }}
+    <p>email</p>
+    {{ email }}
+    <p>сайт</p>
+    {{ site }}
+</body>
+{% endblock %}

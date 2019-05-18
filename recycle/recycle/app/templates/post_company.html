@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Форма добавления объявления
+{% endblock %}
+
+{% block content %}
+<body>
+<form action="{% url 'post_company' %}" method="post">
+
+    {% csrf_token %}
+
+    <p>ФИО представителя</p>
+    {{ form.full_name }}
+    <p>Контактный телефон</p>
+    {{ form.phone_number }}
+    <p>Назание организации</p>
+    {{ form.company_name }}
+    <p>Адрес организации</p>
+    {{ form.company_adress }}
+    <p>email</p>
+    {{ form.email }}
+    <p>сайт</p>
+    {{ form.site }}
+    <p>
+        <button type="submit" class="btn btn-primary">добавить объявление</button>
+    </p>
+</form>
+</body>
+{% endblock %}
