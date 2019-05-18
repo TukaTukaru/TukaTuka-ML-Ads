@@ -124,6 +124,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = '/home/lidia/Documents/recycleProj/TukaTuka-ML-Ads/recycle/recycle/static/'
+
 CURRENT_PATH = os.getcwd() + "/file.log" #path for ubuntu system
 #CURRENT_PATH = os.getcwd() + "\\file.log" #path for windows system
 
