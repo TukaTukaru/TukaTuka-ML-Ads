@@ -57,7 +57,7 @@ class Ad(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField()
     author = models.ForeignKey(
-        on_delete=models.CASCADE, to=Company)
+        on_delete=models.CASCADE, to=Company, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.IntegerField(choices=CATEGORY_CHOICE, default=0)
     category1 = models.IntegerField(choices=CATEGORY_RAW, default=0, blank=True, null=True)
