@@ -5,6 +5,7 @@ from .models import Ad, Company
 from django.contrib.auth.decorators import login_required
 import pdb
 from .forms import *
+from django.forms.models import model_to_dict
 
 # Create your views here.
 # маршрутизация, логика работы приложения
@@ -24,12 +25,13 @@ def post_company(request):
     return render(request, 'post_company.html', context={'form': form})
 
 @login_required
-def patch_company(request):
-    phone_number_ = "+79671234561"
-    site_ = "www.iguan1.ru"
-    company = get_object_or_404(Company, phone_number__exact=phone_number_)
-    Company.objects.filter(phone_number__exact=phone_number_).update(site=site_)
-    return HttpResponse("в компанию добавлен сайт: {}".format(site_))
+def change_company(request,company_name):
+    company = get_object_or_404(Company, company_name=company_name)
+    form = CompanyForm(request.POST or None, initial=model_to_dict(company), instance=company,)
+    if form.is_valid():
+        print("if form.is_valid")
+        company_form = form.save()
+    return render(request, 'change_company.html', context={'form': form})
 
 @login_required
 def get_company(request,company_name):
@@ -63,3 +65,4 @@ def post_ad(request):
 def get_ad(request,title):
     ad = get_object_or_404(Ad, title=title)
     return render(request,'get_ad.html', context={'form': ad})
+

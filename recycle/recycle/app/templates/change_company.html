@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Форма change объявления
+{% endblock %}
+
+{% block content %}
+<body>
+<form action="" method="post">
+
+    {% csrf_token %}
+
+    <p>ФИО представителя</p>
+    {{ form.full_name }}
+    <p>Контактный телефон</p>
+    {{ form.phone_number }}
+    <p>Назание организации</p>
+    {{ form.company_name }}
+    <p>Адрес организации</p>
+    {{ form.company_adress }}
+    <p>email</p>
+    {{ form.email }}
+    <p>сайт</p>
+    {{ form.site }}
+
+    {{ form.errors }}
+    <p>
+        <button type="submit" class="btn btn-primary">change объявление</button>
+    </p>
+</form>
+</body>
+{% endblock %}
